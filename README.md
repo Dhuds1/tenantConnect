@@ -1,6 +1,6 @@
 # Tenant Connect
-### Captsone 209
-### Dawson Hudson
+Dawson Hudson
+Capstone DGL 209
 
 ## About the Project
 The purpose of this repository is to create a simplistic interface that allows Tenants and Landlords to communicate.
@@ -11,3 +11,26 @@ The landlord, or admins, will be able to view the tickets, approve or deny them,
 - Laravel
   - breeze
 - tailwind
+
+## MVP - TODO
+### Tenanat
+- Account
+- Ticket Center
+
+### Admin
+- Tenant List
+- Ticket Center
+
+## Features if time permits
+### Employee Portal
+- Ticket Center
+- Task List
+- Account Information
+
+### Tenants
+- Bill Payments
+
+### Admin
+- Building Info
+- Employee List
+- Employee Task Assignment
