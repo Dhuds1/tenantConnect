@@ -34,3 +34,10 @@ The landlord, or admins, will be able to view the tickets, approve or deny them,
 - Building Info
 - Employee List
 - Employee Task Assignment
+
+CODE that helps 500 error
+composer install 
+mv .env.example .env 
+php artisan cache:clear 
+composer dump-autoload 
+php artisan key:generate
