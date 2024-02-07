@@ -13,4 +13,11 @@ class TicketCenterController extends Controller
         'user' => $request->user(),
     ]);
     }
+
+    public function create(Request $request)
+    {
+      return view ('tickets/create',[
+        'user' => $request->user(),
+      ]);
+    }
 }

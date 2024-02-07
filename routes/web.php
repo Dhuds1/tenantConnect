@@ -22,6 +22,8 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [DashboardDirect::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/tickets', [TicketCenterController::class, 'index'])->middleware(['auth', 'verified'])->name('tickets');
+Route::get('/tickets-create', [TicketCenterController::class, 'create'])->middleware(['auth', 'verified'])->name('tickets.create');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
