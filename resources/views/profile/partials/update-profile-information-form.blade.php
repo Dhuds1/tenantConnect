@@ -22,8 +22,8 @@
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
         <div>
-            <x-input-label for="user_type" :value="__('Account Type')" />
-            <x-text-input id="user_type" name="user_type" type="text" class="mt-1 block w-full bg-slate-100 text-slate-600 bg-b" :value="old('user_type', $user->user_type)" disabled/>
+            <x-input-label for="role" :value="__('Account Type')" />
+            <x-text-input id="role" name="role" type="text" class="capitalize mt-1 block w-full bg-slate-100 text-slate-600 bg-b" :value="old('role', $user->role)" disabled/>
         </div>
         <div>
             <x-input-label for="phone" :value="__('Phone Number')" />
