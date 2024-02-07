@@ -9,15 +9,6 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
       <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
         <div class="p-6 flex gap-4 text-gray-900">
-          @if ($errors->any())
-          <div class="alert alert-danger">
-            <ul>
-              @foreach ($errors->all() as $error)
-                <li>{{ __($error) }}</li>
-              @endforeach
-            </ul>
-          </div>
-          @endif
           <form method="POST" action="{{ route('ticket.store') }}" class="mx-auto w-3/5">
             @csrf
 
@@ -32,6 +23,7 @@
                   <label for="tenant" class="block text-sm font-medium leading-6 text-gray-900">{{__("Name")}}</label>
                   <input type="text" name="tenant" id="tenant" autocomplete="full-name" value="{{ auth()->user()->name }}"
                     class="block w-full rounded-md mt-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <x-input-error :messages="$errors->get('tenant')" class="mt-2" />
                 </div>
 
                 <div class="sm:col-span-2">
@@ -44,6 +36,7 @@
                     <option value="beagle">Beagle</option>
                     <option value="sheperd">Sheperd</option>
                   </select>
+                  <x-input-error :messages="$errors->get('building')" class="mt-2" />
                 </div>
 
                 <div class="sm:col-span-1">
@@ -54,13 +47,15 @@
                     <input type="text" inputmode="numeric" data-input-counter name="unit" id="unit"
                       autocomplete="unit-number" value="{{ auth()->user()->unit }}"
                       class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
-                  </div>
+                    </div>
+                    <x-input-error :messages="$errors->get('unit')" class="mt-2" />
                 </div>
 
                 <div class="sm:col-span-full">
                   <label for="email" class="block text-sm font-medium leading-6 text-gray-900">{{__("Email address")}}</label>
                   <input id="email" name="email" type="email" autocomplete="email" value="{{ auth()->user()->email}}"
                     class="block w-full mt-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
 
                 <div class="sm:col-span-3">
@@ -74,6 +69,7 @@
                     <option value="suggestion">Suggestion</option>
                     <option value="concerns">Concerns</option>
                   </select>
+                  <x-input-error :messages="$errors->get('topic')" class="mt-2" />
                 </div>
 
                 <div class="sm:col-span-3">
@@ -86,12 +82,14 @@
                     <option value="high">High</option>
                     <option value="urgent">Urgent</option>
                   </select>
+                  <x-input-error :messages="$errors->get('priority')" class="mt-2" />
                 </div>
 
                 <div class="sm:col-span-full">
                   <label for="details" class="block text-sm font-medium leading-6 text-gray-900">{{__("Details")}}</label>
                   <textarea id="details" name="details" type="details" rows="10" autocomplete="details"
                     class="block w-full rounded-md mt-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ old('details')}}">{{ old('details') }}</textarea>
+                    <x-input-error :messages="$errors->get('details')" class="mt-2" />
                 </div>
 
               </div>
