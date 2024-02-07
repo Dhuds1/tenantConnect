@@ -19,13 +19,38 @@
             {{ __("New") }}
           </x-ticket-btn>
         </div>
-        @foreach (auth()->user()->closed_tickets() as $ticket)
-            {{ $ticket->details }}
-            <br>
-        @endforeach
+        <div class="mb-6 mx-6">
+          <div class=" bg-purple-400 rounded-lg px-6 uppercase mb-2 py-2 flex justify-between gap-4 text-gray-900">
+            <span class="">Topic</span>
+            <span class="">Building</span>
+            <span class="">Priority</span>
+            <span class="">Detail</span>
+            <span class="">Status</span>
+          </div>
+          @foreach (auth()->user()->get_tickets() as $ticket)
+          <div class=" bg-purple-400 rounded-lg p-6 flex gap-4 text-gray-900 justify-between">
+            <span>
+              {{ $ticket->topic }}
+            </span>
+            <span>
+              {{ $ticket->priority }}
+            </span>
+            <span>
+              {{ $ticket->building }}
+            </span>
+            <span>
+              {{ $ticket->details }}
+            </span>
+            <span>
+              {{ $ticket->status }}
+            </span>
+          </div>
         </div>
+        @endforeach
       </div>
     </div>
+  </div>
+  </div>
   </div>
 
 

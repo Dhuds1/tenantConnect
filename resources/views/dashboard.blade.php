@@ -9,21 +9,21 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    {{ __("Welcome, $user->name") }}
+                    {{ __("Welcome, ". auth()->user()->name) }}
                 </div>
             </div>
         </div>
         <div class="mt-3 max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    {{ __("Tickets Open — $user->tickets_open") }}
+                    {{ __("Tickets Open — ".auth()->user()->open_tickets_count()) }}
                 </div>
             </div>
         </div>
         <div class="mt-3 max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    {{ __("Tickets Closed — $user->tickets_closed") }}
+                    {{ __("Tickets Closed — ".auth()->user()->closed_tickets_count()) }}
                 </div>
             </div>
         </div>

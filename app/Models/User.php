@@ -60,9 +60,17 @@ class User extends Authenticatable
     {
         return $this->hasMany(Ticket::class)->where('status', 'open')->get();
     }
+    public function open_tickets_count()
+    {
+        return $this->open_tickets()->count();
+    }
     // Return all closed tickets from user
     public function closed_tickets()
     {
         return $this->hasMany(Ticket::class)->where('status', 'closed')->get();
+    }
+    public function closed_tickets_count()
+    {
+        return $this->closed_tickets()->count();
     }
 }
