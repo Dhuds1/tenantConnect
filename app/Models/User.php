@@ -43,4 +43,26 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    // User has ticket relationship
+
+    public function ticket()
+    {
+        return $this->hasMany(Ticket::class);
+    }
+    // Returns all tickets
+    public function get_tickets()
+    {
+        return $this->hasMany(Ticket::class)->get();
+    }
+    // Returns all open tickets from user
+    public function open_tickets()
+    {
+        return $this->hasMany(Ticket::class)->where('status', 'open')->get();
+    }
+    // Return all closed tickets from user
+    public function closed_tickets()
+    {
+        return $this->hasMany(Ticket::class)->where('status', 'closed')->get();
+    }
 }

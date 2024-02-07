@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Ticket;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 
@@ -12,17 +13,15 @@ class TicketController extends Controller
 {
     public function index()
     {
-        return view('tickets/ticket',[
-            'tickets' => Ticket::orderBy('created_at', 'DESC')->get()
-        ]);
+        return view('tickets/ticket');
     }
-    public function create(Request $request)
+    public function create()
     {
         return view('tickets/create');
     }
-    public function store(Request $request): RedirectResponse
+    public function store(User $user)
         {
-        $request->validate([
+        $data = request()->validate([
             'tenant' => ['required', 'string', 'max:255'],
             'building' => ['required', 'string', 'max:255'],
             'unit' => ['required', 'string', 'max:255'],
@@ -31,17 +30,7 @@ class TicketController extends Controller
             'priority' => ['required', 'string', 'max:255'],
             'details' => ['required', 'string', 'max:255'],
         ]);
-        $ticket = new Ticket([
-            'tenant' => $request->tenant,
-            'building' =>  $request->building,
-            'unit' => $request->unit,
-            'email' =>  $request->email,
-            'topic' => $request->topic,
-            'priority' => $request->priority,
-            'details' =>  $request->details,
-        ]);
-        $ticket->save();
-
+        auth()->user()->ticket()->create($data);
         return redirect(RouteServiceProvider::TICKET);
     }
 }

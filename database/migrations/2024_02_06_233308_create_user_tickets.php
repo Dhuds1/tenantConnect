@@ -15,13 +15,14 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('topic');
+            $table->string('tenant');
             $table->string('priority');
             $table->string('building');
             $table->string('unit');
             $table->string('email');
-            $table->string('tenant');
             $table->longText('details');
             $table->string('status')->default('open');
+            $table->foreignId('user_id');
         });
     }
 

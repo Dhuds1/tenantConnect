@@ -18,4 +18,8 @@ class Ticket extends Model
         'priority',
         'details'
     ];
+    public function user()
+    {
+        return $this->belongsTo(User::Class);
+    }
 }

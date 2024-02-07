@@ -19,7 +19,7 @@
             {{ __("New") }}
           </x-ticket-btn>
         </div>
-        @foreach ($tickets as $ticket)
+        @foreach (auth()->user()->closed_tickets() as $ticket)
             {{ $ticket->details }}
             <br>
         @endforeach
