@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardDirect;
 use App\Http\Controllers\TicketCenterController;
+use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,8 +22,8 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', [DashboardDirect::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
-Route::get('/tickets', [TicketCenterController::class, 'index'])->middleware(['auth', 'verified'])->name('tickets');
-Route::get('/tickets-create', [TicketCenterController::class, 'create'])->middleware(['auth', 'verified'])->name('tickets.create');
+Route::get('/tickets', [TicketController::class, 'index'])->middleware(['auth', 'verified'])->name('tickets');
+Route::get('/ticket-create', [TicketController::class, 'create_ticket'])->middleware(['auth', 'verified'])->name('tickets.create');
 
 
 Route::middleware('auth')->group(function () {

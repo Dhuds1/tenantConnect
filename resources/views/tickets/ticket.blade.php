@@ -18,8 +18,11 @@
           <x-ticket-btn :href="route('tickets.create')" :btn="true">
             {{ __("New") }}
           </x-ticket-btn>
-          
         </div>
+        @foreach ($tickets as $ticket)
+            {{ $ticket->details }}
+            <br>
+        @endforeach
         </div>
       </div>
     </div>
