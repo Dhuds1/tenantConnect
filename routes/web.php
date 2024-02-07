@@ -23,7 +23,8 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [DashboardDirect::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/tickets', [TicketController::class, 'index'])->middleware(['auth', 'verified'])->name('tickets');
-Route::get('/ticket-create', [TicketController::class, 'create_ticket'])->middleware(['auth', 'verified'])->name('tickets.create');
+Route::get('/ticket-create', [TicketController::class, 'create'])->middleware(['auth', 'verified'])->name('ticket.create');
+Route::post('/ticket-create', [TicketController::class, 'store'])->middleware(['auth', 'verified'])->name('ticket.store');
 
 
 Route::middleware('auth')->group(function () {

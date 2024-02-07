@@ -37,7 +37,6 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::post('submit', [TicketCenterController::class, 'submit'])->name('submit.ticket');
     Route::get('verify-email', EmailVerificationPromptController::class)
                 ->name('verification.notice');
 

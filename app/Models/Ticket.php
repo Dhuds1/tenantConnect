@@ -14,7 +14,7 @@ class Ticket extends Model
         'building',
         'unit',
         'email',
-        'subject',
+        'topic',
         'priority',
         'details'
     ];

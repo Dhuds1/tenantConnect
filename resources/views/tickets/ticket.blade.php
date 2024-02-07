@@ -15,7 +15,7 @@
           <x-ticket-btn>
             {{ __("Closed") }}
           </x-ticket-btn>
-          <x-ticket-btn :href="route('tickets.create')" :btn="true">
+          <x-ticket-btn :href="route('ticket.create')" :btn="true">
             {{ __("New") }}
           </x-ticket-btn>
         </div>
