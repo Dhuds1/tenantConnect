@@ -15,8 +15,12 @@ return new class extends Migration
             $table->id();
             $table->timestamp('date');
             $table->string('subject');
+            $table->string('priority');
+            $table->string('building');
+            $table->string('unit');
             $table->string('tenant');
-            $table->longText('message');
+            $table->longText('details');
+            $table->string('status')->default('open');
             $table->foreignId('user_id');
         });
     }
