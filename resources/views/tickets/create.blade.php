@@ -10,7 +10,9 @@
       <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
         <div class="p-6 flex gap-4 text-gray-900">
 
-          <form class="mx-auto w-3/5">
+          <form meth="POST" action="{{ route('submit.ticket') }}" class="mx-auto w-3/5">
+            @csrf
+
             <div class="space-y-12">
               <div>
                 <h2 class="text-base font-semibold leading-7 text-gray-900">Ticket Information</h2>
