@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class ticket-item extends Component
+class TicketItem extends Component
 {
     /**
      * Create a new component instance.
