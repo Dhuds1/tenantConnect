@@ -3,8 +3,8 @@
 
 
 <!-- This is an example component -->
-<div class="">
-    <ul class="flex flex-wrap -mb-px" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
+<div class="w-full">
+    <ul class="flex flex-wrap" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
         <li class="mr-2" role="presentation">
             <button
                 class="inline-block text-gray-500 hover:text-gray-600 hover:border-gray-300 rounded-t-lg py-4 px-4 text-sm font-medium text-center border-transparent border-b-2 dark:text-gray-400 dark:hover:text-gray-300 active"
@@ -23,16 +23,17 @@
                 id="Closed-tab" data-tabs-target="#Closed" type="button" role="tab" aria-controls="Closed"
                 aria-selected="true">Closed</button>
         </li>
+        <li class="ml-auto"><a href="{{route('ticket.create')}}" class="inline-block border-blue-500 text-gray-500 hover:text-white hover:bg-blue-500 rounded-lg mt-2 py-2 px-4 text-sm font-medium text-center border-transparent border-2">New</a></li>
     </ul>
-    <div id="myTabContent">
-        <div class="bg-gray-50 p-4 rounded-lg dark:bg-gray-800" id="All" role="tabpanel" aria-labelledby="All-tab">
+    <div id="myTabContent" class="mt-2">
+        <div class="" id="All" role="tabpanel" aria-labelledby="All-tab">
             <x-ticket-item :tickets="$tickets=auth()->user()->get_tickets()" />
         </div>
-        <div class="bg-gray-50 p-4 rounded-lg dark:bg-gray-800 hidden" id="active" role="tabpanel"
+        <div class="hidden" id="active" role="tabpanel"
             aria-labelledby="active-tab">
             <x-ticket-item :tickets="$tickets=auth()->user()->open_tickets()" />
         </div>
-        <div class="bg-gray-50 p-4 rounded-lg dark:bg-gray-800 hidden" id="Closed" role="tabpanel"
+        <div class="hidden" id="Closed" role="tabpanel"
             aria-labelledby="Closed-tab">
             <x-ticket-item :tickets="$tickets=auth()->user()->closed_tickets()" />
         </div>
