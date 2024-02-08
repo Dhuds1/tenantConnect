@@ -16,6 +16,7 @@ class Ticket extends Model
         'email',
         'topic',
         'priority',
+        'title',
         'details'
     ];
     public function user()

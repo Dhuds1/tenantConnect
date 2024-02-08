@@ -51,9 +51,9 @@ class User extends Authenticatable
         return $this->hasMany(Ticket::class);
     }
     // Returns all tickets
-    public function get_tickets()
+    public function get_tickets($order = 'DESC')
     {
-        return $this->hasMany(Ticket::class)->get();
+        return $this->hasMany(Ticket::class)->orderBy('created_at', $order)->get();
     }
     // Returns all open tickets from user
     public function open_tickets()

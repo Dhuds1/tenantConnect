@@ -10,6 +10,7 @@ The landlord, or admins, will be able to view the tickets, approve or deny them,
 ## Tech Stack and packages
 - Laravel
   - breeze
+  - Livewire
 - tailwind
 
 ## MVP - TODO
@@ -43,4 +44,5 @@ composer dump-autoload
 php artisan key:generate
 
 ## Resources
-https://www.youtube.com/watch?v=as5GRQMBLEw
+[YouTube Model](https://www.youtube.com/watch?v=as5GRQMBLEw)
+[Support Ticket Design](https://dribbble.com/shots/3578209-Card-design-for-Support-Tickets-NanoSupport)

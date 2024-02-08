@@ -28,6 +28,7 @@ class TicketController extends Controller
             'email' => ['required', 'lowercase', 'string', 'max:255'],
             'topic' => ['required', 'string', 'max:255'],
             'priority' => ['required', 'string', 'max:255'],
+            'title' => ['required', 'string', 'max:255'],
             'details' => ['required', 'string', 'max:255'],
         ]);
         auth()->user()->ticket()->create($data);

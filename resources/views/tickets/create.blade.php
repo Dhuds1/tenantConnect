@@ -86,6 +86,13 @@
                 </div>
 
                 <div class="sm:col-span-full">
+                  <label for="title" class="block text-sm font-medium leading-6 text-gray-900">{{__("Title")}}</label>
+                  <input id="title" name="title" type="text" autocomplete="title" value="{{old('title')}}"
+                    class="block w-full mt-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <x-input-error :messages="$errors->get('title')" class="mt-2" />
+                </div>
+
+                <div class="sm:col-span-full">
                   <label for="details" class="block text-sm font-medium leading-6 text-gray-900">{{__("Details")}}</label>
                   <textarea id="details" name="details" type="details" rows="10" autocomplete="details"
                     class="block w-full rounded-md mt-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ old('details')}}">{{ old('details') }}</textarea>
@@ -94,7 +101,7 @@
 
               </div>
               <div class="mt-6 flex items-center justify-end gap-x-6">
-                <button type="button" class="text-sm font-semibold leading-6 text-gray-900">{{_("Cancel")}}</button>
+                <a class="inline-block text-sm font-semibold leading-6 text-gray-900" href="{{route('tickets')}}">{{_("Cancel")}}</a>
                 <button type="submit"
                   class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">{{__("Save")}}</button>
               </div>
