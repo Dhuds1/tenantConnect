@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
+use App\Models\User;
 return new class extends Migration
 {
     /**
@@ -13,16 +13,17 @@ return new class extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(User::class);
             $table->timestamps();
             $table->string('topic');
             $table->string('tenant');
-            $table->string('priority');
             $table->string('building');
             $table->string('unit');
             $table->string('email');
             $table->longText('details');
+            $table->string('priority');
+            $table->string('title');
             $table->string('status')->default('open');
-            $table->foreignId('user_id');
         });
     }
 

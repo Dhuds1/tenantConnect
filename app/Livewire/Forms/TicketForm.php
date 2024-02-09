@@ -8,6 +8,5 @@ use Livewire\Form;
 class TicketForm extends Form
 {
     // Livewire ticket form
-    public $ = auth()->user()->name;
 
 }

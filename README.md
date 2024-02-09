@@ -44,5 +44,6 @@ composer dump-autoload
 php artisan key:generate
 
 ## Resources
-[YouTube Model](https://www.youtube.com/watch?v=as5GRQMBLEw)
+[Laravel Model Tutorial](https://www.youtube.com/watch?v=as5GRQMBLEw)
+[Livewire Tutorial](https://www.youtube.com/watch?v=2tOgn2HydKE)
 [Support Ticket Design](https://dribbble.com/shots/3578209-Card-design-for-Support-Tickets-NanoSupport)

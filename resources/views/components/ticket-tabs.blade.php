@@ -23,8 +23,9 @@
         id="Closed-tab" data-tabs-target="#Closed" type="button" role="tab" aria-controls="Closed"
         aria-selected="true">Closed</button>
     </li>
-    <li class="ml-auto"><a href="{{route('ticket.create')}}"
-        class="inline-block border-blue-500 text-gray-500 hover:text-white hover:bg-blue-500 rounded-lg mt-2 py-2 px-4 text-sm font-medium text-center border-transparent border-2">New</a>
+    
+    <li class="ml-auto">
+      <button class="inline-block border-blue-500 text-gray-500 hover:text-white hover:bg-blue-500 rounded-lg mt-2 py-2 px-4 text-sm font-medium text-center border-transparent border-2" onclick="Livewire.dispatch('openModal', { component: 'ticket-create' })">Edit User</button>
     </li>
   </ul>
   <div id="myTabContent" class="mt-2">

@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -46,7 +47,7 @@ class User extends Authenticatable
 
     // User has ticket relationship
 
-    public function ticket()
+    public function tickets(): HasMany
     {
         return $this->hasMany(Ticket::class);
     }
@@ -58,7 +59,7 @@ class User extends Authenticatable
     // Returns all open tickets from user
     public function open_tickets()
     {
-        return $this->hasMany(Ticket::class)->where('status', 'open')->get();
+        return $this->hasMany(Ticket::class)->where('status')->get();
     }
     public function open_tickets_count()
     {
@@ -67,7 +68,7 @@ class User extends Authenticatable
     // Return all closed tickets from user
     public function closed_tickets()
     {
-        return $this->hasMany(Ticket::class)->where('status', 'closed')->get();
+        return $this->hasMany(Ticket::class)->where('status')->get();
     }
     public function closed_tickets_count()
     {

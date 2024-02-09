@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardDirect;
 use App\Http\Controllers\TicketCenterController;
 use App\Http\Controllers\TicketController;
+use App\Livewire\TicketCreate;
+use App\Livewire\Tickets\TicketIndex;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,15 +24,14 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', [DashboardDirect::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
-Route::get('/tickets', [TicketController::class, 'index'])->middleware(['auth', 'verified'])->name('tickets');
-Route::get('/ticket-create', [TicketController::class, 'create'])->middleware(['auth', 'verified'])->name('ticket.create');
-Route::post('/ticket-create', [TicketController::class, 'store'])->middleware(['auth', 'verified'])->name('ticket.store');
 
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/tickets', TicketIndex::class)->name('tickets.index');
 });
 
 require __DIR__.'/auth.php';
