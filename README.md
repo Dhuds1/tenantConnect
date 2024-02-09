@@ -46,4 +46,6 @@ php artisan key:generate
 ## Resources
 [Laravel Model Tutorial](https://www.youtube.com/watch?v=as5GRQMBLEw)
 [Livewire Tutorial](https://www.youtube.com/watch?v=2tOgn2HydKE)
+@2 hours for admin side
+@2:50 for image uploading
 [Support Ticket Design](https://dribbble.com/shots/3578209-Card-design-for-Support-Tickets-NanoSupport)
