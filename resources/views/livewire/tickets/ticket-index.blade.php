@@ -1,5 +1,4 @@
-<div>
-  <livewire:tickets.ticket-list :ticket="$ticket"/>
+<div class="flex w-2/3 mx-auto">
+  <livewire:tickets.ticket-list lazy/>
   <livewire:tickets.ticket-form />
-  {{-- <livewire:tickets.ticket-list :ticket="$ticket" /> --}}
 </div>

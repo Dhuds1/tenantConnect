@@ -2,17 +2,23 @@
 
 namespace App\Livewire\Tickets;
 
+use Livewire\Attributes\On;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class TicketList extends Component
 {
-    public $ticket;
-    public function mount($ticket)
+    use WithPagination;
+
+    public function placeholder()
     {
-        $this->ticket = $ticket;
+        return view('livewire.loading.skeleton');
     }
+    #[On('ticket-created')]
     public function render()
     {
-        return view('livewire.tickets.ticket-list');
+        return view('livewire.tickets.ticket-list', [
+            'tickets' => auth()->user()->tickets()->paginate(5),
+        ]);
     }
 }

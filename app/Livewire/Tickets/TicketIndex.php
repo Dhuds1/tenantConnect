@@ -11,9 +11,7 @@ class TicketIndex extends Component
 
     public function render()
     {
-        return view('livewire.tickets.ticket-index', [
-            'ticket' => auth()->user()->tickets,
-        ])->layout('layouts.app');
+        return view('livewire.tickets.ticket-index')->layout('layouts.app');
     }
 }
 

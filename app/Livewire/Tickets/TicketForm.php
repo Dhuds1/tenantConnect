@@ -12,6 +12,7 @@ class TicketForm extends Component
     {
         $this->validate();
         $this->ticket->create();
+        $this->dispatch('ticket-created');
         $this->ticket->reset();
     }
     public function render()
