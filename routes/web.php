@@ -2,9 +2,6 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardDirect;
-use App\Http\Controllers\TicketCenterController;
-use App\Http\Controllers\TicketController;
-use App\Livewire\TicketCreate;
 use App\Livewire\Tickets\TicketIndex;
 use Illuminate\Support\Facades\Route;
 

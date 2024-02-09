@@ -6,7 +6,7 @@ use Livewire\Attributes\Validate;
 use Livewire\Attributes\Rule;
 use Livewire\Form;
 
-class TicketForm extends Form
+class TicketCreate extends Form
 {
     // Livewire ticket form
     #[Rule('required')]
