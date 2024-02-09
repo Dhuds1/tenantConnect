@@ -7,6 +7,9 @@ The purpose of this repository is to create a simplistic interface that allows T
 The main functionality of this repository will be service as a ticket center, allowing tenants to submit suggestions, concerns, complaints and requests for repairs.
 The landlord, or admins, will be able to view the tickets, approve or deny them, and assign the tickets to employees, or contractors.
 
+I finally found the best font for PHP because it combines -> => >= <= <=> === == together.
+[Fire Code Text](https://github.com/tonsky/FiraCode)
+
 ## Tech Stack and packages
 - Laravel
   - breeze
