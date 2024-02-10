@@ -1,5 +1,5 @@
 <div
-x-data="{ modelOpen: true }">
+x-data="{ modelOpen: false }">
   <button
     class="flex transform items-center justify-center space-x-2 rounded-md bg-indigo-500 px-3 py-2 text-sm capitalize tracking-wide text-white transition-colors duration-200 hover:bg-indigo-600 focus:bg-indigo-500 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-50 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:bg-indigo-700"
     @click="modelOpen =!modelOpen">
