@@ -1,37 +1,47 @@
 <div class="w-full">
-  <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-      <div class="p-6 text-gray-900">
-        <h1>Tickets</h1>
+  <div class="mx-auto sm:px-6 lg:px-8">
+    <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
+      <div class="p-4 text-gray-900">
+        <h1 class="mb-4 text-xl">New Ticket</h1>
+        <button class="absolute right-3 top-3 text-gray-900 hover:text-red-600 focus:outline-none"
+          @click="modelOpen = false">
+          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </button>
         <div class="">
           @if (session('success'))
-            <div class="p-4 nb-4 text-sm text-green-800 rounded-lg bg-green-100" role="alert">
+            <div class="nb-4 text-md rounded-lg bg-green-100 p-4 text-green-800" role="alert">
               <span class="font-medium">Ticket Submitted</span>
             </div>
           @endif
         </div>
-        <form class="flex gap-4" wire:submit="save">
-          <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+        <form wire:submit="save">
+          <div class="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-8">
             <div class="sm:col-span-3">
-              <label for="tenant" class="block text-sm font-medium leading-6 text-gray-900">{{__("Tenant
-                Name")}}</label>
-              <input type="text" wire:model="ticket.tenant" name="tenant" id="tenant" autocomplete="full-name"
-                class="block w-full rounded-md mt-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              <label class="text-md block font-medium leading-6 text-gray-900"
+                for="tenant">{{ __("Tenant
+                                Name") }}</label>
+              <input id="tenant" wire:model="ticket.tenant" name="tenant"
+                class="sm:text-md mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6"
+                type="text" autocomplete="full-name">
               {{-- Errors --}}
               <div class="">
                 @error('ticket.tenant')
-                <span class="text-red-500 text-xs">
-                  {{$message}}
-                </span>
+                  <span class="text-xs text-red-500">
+                    {{ $message }}
+                  </span>
                 @enderror
               </div>
             </div>
 
-            <div class="sm:col-span-2">
-              <label for="building" class="block text-sm font-medium leading-6 text-gray-900">{{__("Building")}}</label>
-              <select wire:model="ticket.building" name="building" id="building"
-                class="block w-full mt-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                <option value="" selected>{{__("Select Building")}}</option>
+            <div class="sm:col-span-3">
+              <label class="text-md block font-medium leading-6 text-gray-900"
+                for="building">{{ __('Building') }}</label>
+              <select id="building" wire:model="ticket.building" name="building"
+                class="sm:text-md mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
+                <option value="" selected>{{ __('Select Building') }}</option>
                 <option value="collie">Collie</option>
                 <option value="hound">Hound</option>
                 <option value="beagle">Beagle</option>
@@ -40,51 +50,53 @@
               {{-- Errors --}}
               <div class="">
                 @error('ticket.building')
-                <span class="text-red-500 text-xs">
-                  {{$message}}
-                </span>
+                  <span class="text-xs text-red-500">
+                    {{ $message }}
+                  </span>
                 @enderror
               </div>
             </div>
 
-            <div class="sm:col-span-1">
-              <label for="unit" class="block text-sm font-medium leading-6 text-gray-900">{{__("Unit Number")}}</label>
+            <div class="sm:col-span-2">
+              <label class="text-md block font-medium leading-6 text-gray-900"
+                for="unit">{{ __('Unit Number') }}</label>
               <div
-                class="flex mt-2 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                <span class="flex select-none items-center pl-3 text-gray-500 sm:text-sm"># </span>
-                <input type="text" wire:model="ticket.unit" inputmode="numeric" data-input-counter name="unit" id="unit"
-                  autocomplete="unit-number" value=""
-                  class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
+                class="mt-2 flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                <span class="sm:text-md flex select-none items-center pl-3 text-gray-500"># </span>
+                <input id="unit" wire:model="ticket.unit" name="unit"
+                  class="sm:text-md block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:leading-6"
+                  type="text" inputmode="numeric" data-input-counter autocomplete="unit-number" value="">
               </div>
               {{-- Errors --}}
               <div class="">
                 @error('ticket.unit')
-                <span class="text-red-500 text-xs">
-                  {{$message}}
-                </span>
+                  <span class="text-xs text-red-500">
+                    {{ $message }}
+                  </span>
                 @enderror
               </div>
             </div>
 
             <div class="sm:col-span-full">
-              <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email</label>
-              <input wire:model="ticket.email" id="email" name="email" type="email" autocomplete="email" value=""
-                class="block w-full mt-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              <label class="text-md block font-medium leading-6 text-gray-900" for="email">Email</label>
+              <input id="email" wire:model="ticket.email" name="email"
+                class="sm:text-md mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6"
+                type="email" autocomplete="email" value="">
               {{-- Errors --}}
               <div class="">
                 @error('ticket.email')
-                <span class="text-red-500 text-xs">
-                  {{$message}}
-                </span>
+                  <span class="text-xs text-red-500">
+                    {{ $message }}
+                  </span>
                 @enderror
               </div>
             </div>
 
             <div class="sm:col-span-3">
-              <label for="topic" class="block mb-2 text-sm font-medium text-gray-900">{{__("Topic")}}</label>
-              <select wire:model="ticket.topic" id="topic" name="topic"
-                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset mt-2 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                <option value="" selected>{{__("Select Topic")}}</option>
+              <label class="text-md mb-2 block font-medium text-gray-900" for="topic">{{ __('Topic') }}</label>
+              <select id="topic" wire:model="ticket.topic" name="topic"
+                class="sm:text-md mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
+                <option value="" selected>{{ __('Select Topic') }}</option>
                 <option value="building">Building</option>
                 <option value="floor">Floor</option>
                 <option value="unit">Unit</option>
@@ -94,64 +106,71 @@
               {{-- Errors --}}
               <div class="">
                 @error('ticket.topic')
-                <span class="text-red-500 text-xs">
-                  {{$message}}
-                </span>
+                  <span class="text-xs text-red-500">
+                    {{ $message }}
+                  </span>
                 @enderror
               </div>
             </div>
 
             <div class="sm:col-span-3">
-              <label for="priority" class="block text-sm font-medium leading-6 text-gray-900">{{__("Priority")}}</label>
+              <label class="text-md block font-medium leading-6 text-gray-900"
+                for="priority">{{ __('Priority') }}</label>
               <select id="priority" wire:model="ticket.priority" name="priority"
-                class="block w-full rounded-md border-0 py-1.5 mt-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                class="sm:text-md mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
                 @foreach (\App\Enums\PriorityType::cases() as $priority)
-                <option value="{{$priority->value}}">{{$priority->name}}</option>
+                  <option value="{{ $priority->value }}">{{ $priority->name }}</option>
                 @endforeach
               </select>
               {{-- Errors --}}
               <div class="">
                 @error('ticket.priority')
-                <span class="text-red-500 text-xs">
-                  {{$message}}
-                </span>
+                  <span class="text-xs text-red-500">
+                    {{ $message }}
+                  </span>
                 @enderror
               </div>
             </div>
 
             <div class="sm:col-span-full">
-              <label for="title" class="block text-sm font-medium leading-6 text-gray-900">{{__("Title")}}</label>
-              <input wire:model="ticket.title" id="title" name="title" type="text" autocomplete="title"
-                class="block w-full mt-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              <label class="text-md block font-medium leading-6 text-gray-900"
+                for="title">{{ __('Title') }}</label>
+              <input id="title" wire:model="ticket.title" name="title"
+                class="sm:text-md mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6"
+                type="text" autocomplete="title">
               {{-- Errors --}}
               <div class="">
                 @error('ticket.title')
-                <span class="text-red-500 text-xs">
-                  {{$message}}
-                </span>
+                  <span class="text-xs text-red-500">
+                    {{ $message }}
+                  </span>
                 @enderror
               </div>
             </div>
 
             <div class="sm:col-span-full">
-              <label for="details" class="block text-sm font-medium leading-6 text-gray-900">{{__("Details")}}</label>
-              <textarea wire:model="ticket.details" id="details" name="details" type="details" rows="10"
-                autocomplete="details"
-                class="block w-full rounded-md mt-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+              <label class="text-md block font-medium leading-6 text-gray-900"
+                for="details">{{ __('Details') }}</label>
+              <textarea id="details" wire:model="ticket.details" name="details"
+                class="sm:text-md mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6"
+                type="details" rows="10" autocomplete="details"></textarea>
               {{-- Errors --}}
               <div class="">
                 @error('ticket.details')
-                <span class="text-red-500 text-xs">
-                  {{$message}}
-                </span>
+                  <span class="text-xs text-red-500">
+                    {{ $message }}
+                  </span>
                 @enderror
               </div>
 
             </div>
-            <button
-              class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">{{__("Submit")}}
-              <div wire:loading class="">ting</div>
+          </div>
+          <div class="flex gap-2 items-end">
+
+              <button
+              class="mt-4 text-md col-span-2 rounded-md bg-indigo-600 px-3 py-2 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">{{ __('Submit') }}
             </button>
+            <span class="text-sm" wire:loading class="">Submitting...</span>
           </div>
       </div>
       </form>

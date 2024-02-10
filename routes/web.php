@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardDirect;
+use App\Livewire\Admin\AdminTicketIndex;
 use App\Livewire\Tickets\TicketIndex;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/tickets', TicketIndex::class)->name('tickets.index');
+    Route::get('/ticket-center', AdminTicketIndex::class)->name('ad.ticket.index');
 });
 
 require __DIR__.'/auth.php';

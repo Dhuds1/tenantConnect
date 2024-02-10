@@ -3,9 +3,9 @@
 namespace App\Livewire\Tickets;
 
 use App\Livewire\Forms\TicketCreate;
-use Livewire\Component;
+use LivewireUI\Modal\ModalComponent;
 
-class TicketForm extends Component
+class TicketForm extends ModalComponent
 {
     public TicketCreate $ticket;
     public function save()

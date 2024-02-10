@@ -52,3 +52,4 @@ php artisan key:generate
 @2 hours for admin side
 @2:50 for image uploading
 [Support Ticket Design](https://dribbble.com/shots/3578209-Card-design-for-Support-Tickets-NanoSupport)
+[Ticket Modal Popup Code](https://tailwindcomponents.com/component/alpine-modal)
