@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardDirect;
 use App\Livewire\Admin\AdTicketIndex;
+use App\Livewire\Admin\AdTicketViewing;
 use App\Livewire\Tickets\TicketIndex;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/tickets', TicketIndex::class)->name('tickets.index');
     Route::get('/ticket-center', AdTicketIndex::class)->name('ad.ticket.index');
+    Route::get('/ticket-center/ticket-id/{id}', [AdTicketViewing::class, 'render'])->name('ad.ticket.viewing');
 });
 
 require __DIR__.'/auth.php';

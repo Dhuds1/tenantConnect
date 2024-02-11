@@ -1,4 +1,3 @@
 <div>
-    Hello
-    <livewire:admin.ad-ticket-list />
+    <livewire:admin.ad-ticket-list lazy/>
 </div>
