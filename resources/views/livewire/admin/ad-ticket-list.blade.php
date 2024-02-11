@@ -25,6 +25,13 @@
         </tr>
       </thead>
       <tbody>
+        @if (empty($tickets))
+        <tr class="border-b odd:bg-white even:bg-gray-50">
+            <th class="whitespace-nowrap px-6 py-4 font-medium text-gray-900" scope="row">
+            No Tickets Available
+            </th>
+        </tr>
+        @endif
         @foreach ($tickets as $ticket)
           <tr class="border-b odd:bg-white even:bg-gray-50">
             <th class="whitespace-nowrap px-6 py-4 font-medium text-gray-900" scope="row">
