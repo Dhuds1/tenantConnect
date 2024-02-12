@@ -2,16 +2,24 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
+use App\Models\User;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class AdminSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
-    {
-        //
-    }
+  /**
+   * Run the database seeds.
+   */
+  public function run(): void
+  {
+    User::create([
+      'name' => 'Adam Bernie',
+      'email' => 'adambernie@tenantconnect.com',
+      'phone' => '1234567890',
+      'email_verified_at' => now(),
+      'password' => '$2y$12$bV24GL/K3zMSqU5cWOXR0ugIcrDLt/37xXyk5wss.s1lrtxkPwDSm',
+    ])->assignRole('owner', 'admin');
+  }
 }

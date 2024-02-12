@@ -12,7 +12,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles;
+    use HasRoles, HasApiTokens, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -51,28 +51,5 @@ class User extends Authenticatable
     public function tickets(): HasMany
     {
         return $this->hasMany(Ticket::class);
-    }
-    // Returns all tickets
-    public function get_tickets($order = 'DESC')
-    {
-        return $this->hasMany(Ticket::class)->orderBy('created_at', $order)->get();
-    }
-    // Returns all open tickets from user
-    public function open_tickets()
-    {
-        return $this->hasMany(Ticket::class)->where('status')->get();
-    }
-    public function open_tickets_count()
-    {
-        return $this->open_tickets()->count();
-    }
-    // Return all closed tickets from user
-    public function closed_tickets()
-    {
-        return $this->hasMany(Ticket::class)->where('status')->get();
-    }
-    public function closed_tickets_count()
-    {
-        return $this->closed_tickets()->count();
     }
 }

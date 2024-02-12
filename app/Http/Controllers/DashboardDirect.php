@@ -14,8 +14,14 @@ class DashboardDirect extends Controller
 {
     public function index(Request $request): View
     {
-      return view('dashboard', [
-        'user' => $request->user(),
-    ]);
+        return view('dashboard', [
+            'user' => $request->user(),
+        ]);
+    }
+    public function admin(Request $request): View
+    {
+        return view('admin.index', [
+            'user' => $request->user(),
+        ]);
     }
 }
