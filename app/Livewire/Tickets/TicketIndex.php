@@ -10,7 +10,7 @@ class TicketIndex extends Component
 {
     public function render()
     {
-        return view('livewire.tickets.ticket-index')->layout('layouts.app');
+        return view('livewire.tickets.ticket-index');
     }
 }
 

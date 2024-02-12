@@ -14,6 +14,7 @@ I finally found the best font for PHP because it combines -> => >= <= <=> === ==
 - Laravel
   - breeze
   - Livewire
+  - Spatie
 - tailwind
 
 ## MVP - TODO

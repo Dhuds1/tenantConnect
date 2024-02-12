@@ -1,15 +1,11 @@
 <div
 x-data="{ modelOpen: false }">
   <button
-    class="mb-2 ml-auto flex transform items-center justify-center space-x-2 rounded-md bg-indigo-500 px-3 py-2 text-sm capitalize tracking-wide text-white transition-colors duration-200 hover:bg-indigo-600 focus:bg-indigo-500 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-50 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:bg-indigo-700"
+    class="transform text-indigo-500 text-sm transition-colors duration-200 hover:text-indigo-900"
     @click="modelOpen =!modelOpen">
-    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-      <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
-        clip-rule="evenodd" />
-    </svg>
     {{-- Dynamically Pull in button title --}}
     {{-- add title="" in <x-ticket-modal> --}}
-    <span>{{ $title }}</span>
+    <span>Update</span>
   </button>
 
   <div class="fixed inset-0 z-50 overflow-y-auto" x-show="modelOpen" aria-labelledby="modal-title" role="dialog"

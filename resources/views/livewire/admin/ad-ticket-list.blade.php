@@ -1,5 +1,5 @@
 <div>
-  <div class="relative mx-auto w-2/3 mt-4 overflow-x-auto bg-white p-6 shadow-md sm:rounded-lg">
+  <div class="relative mt-4 overflow-x-auto bg-white p-6 shadow-md sm:rounded-lg">
     <h1 class="fs-2xl">Ticket Center</h1>
     <table class="w-full rounded-lg text-left text-sm text-gray-500 rtl:text-right">
       <thead class="border-b-2 border-gray-400 text-xs uppercase text-gray-700">
