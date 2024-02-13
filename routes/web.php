@@ -25,8 +25,12 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [DashboardDirect::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/admin', [DashboardDirect::class, 'admin'])->middleware(['auth','role:admin'])->name('admin.index');
-
+// Admin Middleware
+Route::middleware('auth', 'role:admin')->group(function () {
+    Route::get('/admin', [DashboardDirect::class, 'admin'])->name('admin.index');
+    Route::get('/ticket-center', AdTicketIndex::class)->name('ad.ticket.index');
+    Route::get('/ticket-center/ticket-id/{id}', [AdTicketViewing::class, 'render'])->name('ad.ticket.viewing');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -35,8 +39,6 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/tickets', TicketIndex::class)->name('tickets.index');
     Route::get('/tickets/update/{id}', [TicketUpdate::class, 'render'])->name('tickets.update');
-    Route::get('/ticket-center', AdTicketIndex::class)->name('ad.ticket.index');
-    Route::get('/ticket-center/ticket-id/{id}', [AdTicketViewing::class, 'render'])->name('ad.ticket.viewing');
 });
 
 require __DIR__.'/auth.php';
