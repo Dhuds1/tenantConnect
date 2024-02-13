@@ -17,19 +17,22 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
-            @include('layouts.ad-navigation')
 
+            @include('layouts.ad-nav-top')
             <!-- Page Heading -->
             @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
+            <header class="bg-ob-500 shadow">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    {{ $header }}
+                </div>
+            </header>
             @endif
             <!-- Page Content -->
-            <main class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                {{ $slot }}
+            <main class="flex gap-4 justify-between max-w-7xl mx-auto">
+                @include('layouts.ad-nav-side')
+                <div class="w-full">
+                    {{ $slot }}
+                </div>
             </main>
         </div>
         @livewireScripts

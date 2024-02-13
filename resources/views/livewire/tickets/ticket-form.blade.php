@@ -3,6 +3,7 @@
     <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
       <div class="p-4 text-gray-900">
         <h1 class="mb-4 text-xl">New Ticket</h1>
+        <h2 class="text-red-500">All fields required</h2>
         <button class="absolute right-3 top-3 text-gray-900 hover:text-red-600 focus:outline-none"
           @click="modelOpen = false">
           <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
