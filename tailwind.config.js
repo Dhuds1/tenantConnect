@@ -14,7 +14,16 @@ export default {
             fontFamily: {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
             },
-        },
+            colors: {
+                'rp-100': '#F09DC6',
+                'rp-200': '#ED8DBD',
+                'rp-300': '#EB7CB4',
+                'rp-400': '#E14091',
+                'rp-500': '#e65ca1',
+                'rp-600': '#E14091',
+                'rp-700': '#DD2481',
+            }
+        }
     },
 
     plugins: [forms],

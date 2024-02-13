@@ -24,7 +24,7 @@
                 Name") }}</label>
               <input id="tenant" wire:model="ticket.tenant" name="tenant"
                 value="{{$tenant}}"
-                class="sm:text-md mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6"
+                class="sm:text-md mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-rp-600 sm:leading-6"
                 type="text" autocomplete="full-name">
               {{-- Errors --}}
               <div class="">
@@ -40,7 +40,7 @@
               <label class="text-md block font-medium leading-6 text-gray-900" for="building">{{
                 __('Building') }}</label>
               <select id="building" wire:model="ticket.building" name="building"
-                class="sm:text-md mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
+                class="sm:text-md mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-rp-600 sm:leading-6">
                 <option value="" selected>{{ __('Select Building') }}</option>
                 <option value="collie">Collie</option>
                 <option value="hound">Hound</option>
@@ -61,7 +61,7 @@
               <label class="text-md block font-medium leading-6 text-gray-900" for="unit">{{ __('Unit
                 Number') }}</label>
               <div
-                class="mt-2 flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                class="mt-2 flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-rp-600 sm:max-w-md">
                 <span class="sm:text-md flex select-none items-center pl-3 text-gray-500"># </span>
                 <input id="unit" wire:model="ticket.unit" name="unit"
                   class="sm:text-md block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:leading-6"
@@ -80,7 +80,7 @@
             <div class="sm:col-span-full">
               <label class="text-md block font-medium leading-6 text-gray-900" for="email">Email</label>
               <input id="email" wire:model="ticket.email" name="email"
-                class="sm:text-md mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6"
+                class="sm:text-md mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-rp-600 sm:leading-6"
                 type="email" autocomplete="email" value="">
               {{-- Errors --}}
               <div class="">
@@ -96,7 +96,7 @@
               <label class="text-md mb-2 block font-medium text-gray-900" for="topic">{{ __('Topic')
                 }}</label>
               <select id="topic" wire:model="ticket.topic" name="topic"
-                class="sm:text-md mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
+                class="sm:text-md mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-rp-600 sm:leading-6">
                 <option value="" selected>{{ __('Select Topic') }}</option>
                 <option value="building">Building</option>
                 <option value="floor">Floor</option>
@@ -118,7 +118,7 @@
               <label class="text-md block font-medium leading-6 text-gray-900" for="priority">{{
                 __('Priority') }}</label>
               <select id="priority" wire:model="ticket.priority" name="priority"
-                class="sm:text-md mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
+                class="sm:text-md mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-rp-600 sm:leading-6">
                 @foreach (\App\Enums\PriorityType::cases() as $priority)
                 <option value="{{ $priority->value }}">{{ $priority->name }}</option>
                 @endforeach
@@ -137,7 +137,7 @@
               <label class="text-md block font-medium leading-6 text-gray-900" for="title">{{ __('Title')
                 }}</label>
               <input id="title" wire:model="ticket.title" name="title"
-                class="sm:text-md mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6"
+                class="sm:text-md mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-rp-600 sm:leading-6"
                 type="text" autocomplete="title">
               {{-- Errors --}}
               <div class="">
@@ -153,7 +153,7 @@
               <label class="text-md block font-medium leading-6 text-gray-900" for="details">{{
                 __('Details') }}</label>
               <textarea id="details" wire:model="ticket.details" name="details"
-                class="sm:text-md mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6"
+                class="sm:text-md mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-rp-600 sm:leading-6"
                 type="details" rows="10" autocomplete="details"></textarea>
               {{-- Errors --}}
               <div class="">
@@ -169,7 +169,7 @@
           <div class="flex gap-2 items-end">
 
             <button
-              class="mt-4 text-md col-span-2 rounded-md bg-indigo-600 px-3 py-2 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">{{
+              class="mt-4 text-md col-span-2 rounded-md bg-rp-600 px-3 py-2 font-semibold text-white shadow-sm hover:bg-rp-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rp-600">{{
               __('Submit') }}
             </button>
             <span class="text-sm" wire:loading class="">Submitting...</span>

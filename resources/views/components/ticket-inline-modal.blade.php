@@ -1,7 +1,7 @@
 <div
 x-data="{ modelOpen: false }">
   <button
-    class="transform text-indigo-500 text-sm transition-colors duration-200 hover:text-indigo-900"
+    class="transform text-rp-500 text-sm transition-colors duration-200 hover:text-rp-900"
     @click="modelOpen =!modelOpen">
     {{-- Dynamically Pull in button title --}}
     {{-- add title="" in <x-ticket-modal> --}}

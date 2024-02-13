@@ -15,13 +15,13 @@
                 <h2>
                     {{$ticket->title}}
                 </h2>
-                <h3 class="text-[0.6rem] py-1 px-3 rounded-full bg-indigo-200">
+                <h3 class="text-[0.6rem] py-1 px-3 rounded-full bg-rp-200">
                     {{$ticket->created_at->diffForHumans()}}
                 </h3>
-                <h3 class="text-[0.6rem] py-1 px-3 rounded-full bg-indigo-200">
+                <h3 class="text-[0.6rem] py-1 px-3 rounded-full bg-rp-200">
                     {{$ticket->status}}
                 </h3>
-                <h3 class="text-[0.6rem] py-1 px-3 rounded-full bg-indigo-200">
+                <h3 class="text-[0.6rem] py-1 px-3 rounded-full bg-rp-200">
                     {{$ticket->priority}}
                 </h3>
             </div>

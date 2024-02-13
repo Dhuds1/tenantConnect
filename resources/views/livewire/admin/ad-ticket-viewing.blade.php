@@ -14,7 +14,7 @@
     <form class="flex flex-col">
         <label class="block text-xl font-medium leading-6 text-gray-900" for="status">{{ __('Change Status') }}</label>
         <select id="status" name="status"
-        class="rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+        class="rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-rp-600 sm:text-sm sm:leading-6">
         <option value="Open" selected>Open</option>
         <option value="reviewing">Reviewing</option>
         <option value="accepted">Accepted</option>
