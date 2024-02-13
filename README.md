@@ -19,24 +19,21 @@ I finally found the best font for PHP because it combines -> => >= <= <=> === ==
 
 ## MVP - TODO
 ### Tenanat
-- Account
-- Ticket Center
+- Ticket Creation
 
 ### Admin
-- Tenant List
 - Ticket Center
 
 ## Features if time permits
 ### Employee Portal
-- Ticket Center
 - Task List
-- Account Information
 
 ### Tenants
-- Bill Payments
+- Media Input
+- Ticket Archiving
 
 ### Admin
-- Building Info
+- Tenant List
 - Employee List
 - Employee Task Assignment
 
