@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-admin-layout>
   <x-slot name="header">
     <div class="flex justify-between align-bottom">
 
@@ -24,8 +24,8 @@
     </form>
   </div>
   </x-slot>
-  <div class="py-12">
-    <div class="mx-auto w-2/3 sm:px-6 lg:px-8">
+  <div class="">
+    <div class="mx-auto sm:px-6 lg:px-8">
       <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
         <div class="p-6 pt-0 text-gray-900">
           <div>
@@ -106,4 +106,4 @@
           </div>
         </div>
       </div>
-</x-app-layout>
+</x-admin-layout>
