@@ -15,17 +15,19 @@ export default {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                'rp-100': '#F09DC6',
-                'rp-200': '#ED8DBD',
-                'rp-300': '#EB7CB4',
-                'rp-400': '#E14091',
-                'rp-500': '#e65ca1',
-                'rp-600': '#E14091',
-                'rp-700': '#DD2481',
-                'ob-200': '#2C3242',
-                'ob-500': '#12192b'
-            }
-        }
+                "rp-100": "#F09DC6",
+                "rp-200": "#ED8DBD",
+                "rp-300": "#EB7CB4",
+                "rp-400": "#E14091",
+                "rp-500": "#e65ca1",
+                "rp-600": "#E14091",
+                "rp-700": "#DD2481",
+                "ob-0": "#DFE5F2",
+                "ob-100": "#D3D5D8",
+                "ob-200": "#2C3242",
+                "ob-900": "#12192b",
+            },
+        },
     },
 
     plugins: [forms],
