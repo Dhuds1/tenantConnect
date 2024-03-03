@@ -7,7 +7,7 @@
       <div
         class="absolute left-0 h-4/5 w-1 rounded-r-lg bg-ob-900 transition-all duration-200 group-hover:bg-rp-500 group-[.active-group]:bg-rp-500">
       </div>
-      <span class="inline-blockn h-5 w-5"><i class="fa-regular fa-objects-column"></i></span>
+      <span class="grid h-5 w-5 place-items-center"><i class="fa-regular fa-objects-column"></i></span>
       <span>
         {{ __('Dashboard') }}
       </span>
@@ -19,7 +19,7 @@
       <div
         class="absolute left-0 h-4/5 w-1 rounded-r-lg bg-ob-900 transition-all duration-200 group-hover:bg-rp-500 group-[.active-group]:bg-rp-500">
       </div>
-      <span class="inline-block h-5 w-5"><i class="fa-regular fa-ticket"></i></span>
+      <span class="grid h-5 w-5 place-items-center"><i class="fa-regular fa-ticket"></i></span>
       <span>
         {{ __('Tickets Center') }}
       </span>
@@ -31,25 +31,25 @@
       <div
         class="absolute left-0 h-4/5 w-1 rounded-r-lg bg-ob-900 transition-all duration-200 group-hover:bg-rp-500 group-[.active-group]:bg-rp-500">
       </div>
-      <span class="h-5inline-block w-5"><i class="fa-regular fa-user"></i></span>
+      <span class="grid h-5 w-5 place-items-center"><i class="fa-regular fa-user"></i></span>
       <span>
         {{ __('Account') }}
       </span>
     </x-nav-side-link>
   </div>
-    <form method="POST" class="relative" action="{{ route('logout') }}">
-      @csrf
+  <form class="relative" method="POST" action="{{ route('logout') }}">
+    @csrf
 
-      <x-nav-side-link :href="route('logout')"
-        onclick="event.preventDefault();
+    <x-nav-side-link :href="route('logout')"
+      onclick="event.preventDefault();
                             this.closest('form').submit();">
-        <div
-          class="absolute left-0 h-4/5 w-1 rounded-r-lg bg-ob-900 transition-all duration-200 group-hover:bg-rp-500 group-[.active-group]:bg-rp-500">
-        </div>
-        <span class="inline-block h-5 w-5"><i class="fa-solid fa-arrow-right-from-bracket"></i> </span>
-        <span>
-          {{ __('Logout') }}
-        </span>
-  </x-nav-side-link>
+      <div
+        class="absolute left-0 h-4/5 w-1 rounded-r-lg bg-ob-900 transition-all duration-200 group-hover:bg-rp-500 group-[.active-group]:bg-rp-500">
+      </div>
+      <span class="grid h-5 w-5 place-items-center"><i class="fa-solid fa-arrow-right-from-bracket"></i> </span>
+      <span>
+        {{ __('Logout') }}
+      </span>
+    </x-nav-side-link>
   </form>
 </div>

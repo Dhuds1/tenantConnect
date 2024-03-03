@@ -18,15 +18,13 @@
   <script src="https://kit.fontawesome.com/09b7d5371f.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="bg-slate-50 font-sans antialiased flex">
-  <aside class="sticky top-0 w-[260px] rounded-lg bg-red-200 h-[100dvh]">
+<body class="bg-[#ffe666] font-sans antialiased flex">
+  <aside class="fixed md:sticky top-0 w-[260px] rounded-lg bg-red-200 h-[100dvh]">
     @include('layouts.ad-nav-side')
   </aside>
   <!-- Page Content -->
-  <main class="top-0 w-[calc(100vw-260px)] bg-pink-200 overflow-scroll pt-4">
-    <div class="md:mx-auto">
+  <main class="mx-auto w-2/3">
       {{ $slot }}
-    </div>
   </main>
   @livewireScripts
 </body>
