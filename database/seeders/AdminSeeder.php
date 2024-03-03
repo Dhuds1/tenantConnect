@@ -19,7 +19,7 @@ class AdminSeeder extends Seeder
       'email' => 'adambernie@tenantconnect.com',
       'phone' => '1234567890',
       'email_verified_at' => now(),
-      'password' => '$2y$12$bV24GL/K3zMSqU5cWOXR0ugIcrDLt/37xXyk5wss.s1lrtxkPwDSm',
+      'password' => '$2y$12$y5NIOyUXexY2XERK4qGZfO2Az./3sPYV77QYCzjZLid0aVbrrmGWi',
     ])->assignRole('owner', 'admin');
   }
 }
