@@ -19,8 +19,13 @@
 </head>
 
 <body class="bg-[#ffe666] font-sans antialiased flex">
-  <aside class="fixed md:sticky top-0 w-[260px] rounded-lg bg-red-200 h-[100dvh]">
-    @include('layouts.ad-nav-side')
+  <aside class="fixed md:sticky md:left-0 top-0 rounded-lg bg-red-200 h-[100dvh]">
+    <button data-collapse-toggle="navbar-hamburger" aria-controls="navbar-hamburger" aria-expanded="false" class="fixed top-2 left-2 peer-[mobile]">
+        <i class="fa-solid fa-bars fa-xl"></i>
+    </button>
+    <div id="navbar-hamburger" class="hidden">
+        @include('layouts.ad-nav-side')
+    </div>
   </aside>
   <!-- Page Content -->
   <main class="mx-auto w-2/3">
