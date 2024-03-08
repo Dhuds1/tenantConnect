@@ -27,34 +27,35 @@
       <tbody>
         @if (empty($tickets))
         <tr class="border-b odd:bg-white even:bg-gray-50">
-            <th class="whitespace-nowrap px-6 py-4 font-medium text-gray-900" scope="row">
+          <th class="whitespace-nowrap px-6 py-4 font-medium text-gray-900" scope="row">
             No Tickets Available
-            </th>
+          </th>
         </tr>
         @endif
         @foreach ($tickets as $ticket)
-          <tr class="border-b odd:bg-white even:bg-gray-50">
-            <th class="whitespace-nowrap px-6 py-4 font-medium text-gray-900" scope="row">
-              {{ $ticket->tenant }}
-            </th>
-            <td class="px-6 py-4">
-              {{ $ticket->created_at->diffForHumans() }}
-            </td>
-            <td class="px-6 py-4">
-              {{ $ticket->title }}
-            </td>
-            <td class="px-6 py-4">
-              {{ $ticket->priority }}
-            </td>
-            <td class="px-6 py-4">
-              {{ $ticket->status }}
-            </td>
-            <td class="px-6 py-4">
-              <a class="font-medium text-blue-600 hover:underline" href="{{route('ad.ticket.viewing', ['id' => "$ticket->id"])}} "wire:navigate>
-                View Ticket
-              </a>
-            </td>
-          </tr>
+        <tr class="border-b odd:bg-white even:bg-gray-50">
+          <th class="whitespace-nowrap px-6 py-4 font-medium text-gray-900" scope="row">
+            {{ $ticket->tenant }}
+          </th>
+          <td class="px-6 py-4">
+            {{ $ticket->created_at->diffForHumans() }}
+          </td>
+          <td class="px-6 py-4">
+            {{ $ticket->title }}
+          </td>
+          <td class="px-6 py-4">
+            {{ $ticket->priority }}
+          </td>
+          <td class="px-6 py-4">
+            {{ $ticket->status }}
+          </td>
+          <td class="px-6 py-4">
+            <a class="font-medium text-rp-500 hover:underline" href="{{route('ad.ticket.viewing', ['id' => "
+              $ticket->id"])}} "wire:navigate>
+              View Ticket
+            </a>
+          </td>
+        </tr>
         @endforeach
       </tbody>
     </table>

@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('priority');
             $table->string('title');
             $table->string('status')->default('open');
+            $table->string('seen')->default('unseen');
+            $table->string('last_viewed')->nullable();
         });
     }
 

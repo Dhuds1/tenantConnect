@@ -25,7 +25,7 @@
       </span>
     </x-nav-side-link>
   </div>
-  <h3 class="ml-[10%] mt-auto text-xs">User</h3>
+  <h3 class="ml-[10%] mt-auto text-xs">{{auth()->user()->name}}</h3>
   <div class="relative">
     <x-nav-side-link :href="route('profile.edit')" :active="request()->routeIs('profile.edit')">
       <div
@@ -33,7 +33,7 @@
       </div>
       <span class="grid h-5 w-5 place-items-center"><i class="fa-regular fa-user"></i></span>
       <span>
-        {{ __('Account') }}
+        {{ __('My Account') }}
       </span>
     </x-nav-side-link>
   </div>

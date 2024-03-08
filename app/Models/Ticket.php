@@ -27,6 +27,9 @@ class Ticket extends Model
         'priority'=> PriorityType::class,
     ];
 
+
+
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

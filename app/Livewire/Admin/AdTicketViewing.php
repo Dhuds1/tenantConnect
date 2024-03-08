@@ -10,8 +10,14 @@ class AdTicketViewing extends Component
 {
     public function render($ticket)
     {
+        $ticket = Ticket::findOrFail($ticket);
+        if($ticket->seen == "unseen"){
+            $ticket->seen = "seen";
+        }
+        $ticket->last_viewed = now();
+        $ticket->save();
         return view('livewire.admin.ad-ticket-viewing', [
-            'ticket' => Ticket::findOrFail($ticket)
+            'ticket' => $ticket,
         ]);
     }
 }
