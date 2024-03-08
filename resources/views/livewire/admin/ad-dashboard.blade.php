@@ -25,7 +25,7 @@
     </div>
     @if(!$urgent->isEmpty())
     <div x-data="{ expanded: false }" class="bg-white p-4 rounded-lg">
-        <div class="bg-white p-4 flex justify-between gap-4 rounded-lg">
+        <div class="flex justify-between gap-4">
             <h3>
                 Urgent
             </h3>
@@ -48,7 +48,7 @@
         </div>
     </div>
     @endif @if(!$pending->isEmpty())
-    <div x-data="{ expanded: true }" class="bg-white p-4 rounded-lg">
+    <div x-data="{ expanded: false }" class="bg-white p-4 rounded-lg">
         <div class="flex justify-between gap-4 ">
             <h3>
                 Pending

@@ -17,8 +17,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://kit.fontawesome.com/09b7d5371f.js" crossorigin="anonymous"></script>
 </head>
-
-<body class="bg-yl-500 font-sans antialiased flex">
+<body id="body" class="bg-yl-500 font-sans antialiased flex">
     <x-mobile-toggle />
     <x-desktop-toggle />
     <!-- Page Content -->
