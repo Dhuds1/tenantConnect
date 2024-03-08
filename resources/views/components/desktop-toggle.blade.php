@@ -4,6 +4,9 @@
             on: Alpine.$persist(false),
             toggle() {
                 this.on = ! this.on
+            },
+            change() {
+                this.on = true;
             }
         })
     })
