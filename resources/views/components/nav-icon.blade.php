@@ -1,3 +1,3 @@
-<div class="grid place-items-center" :class="open ? '' : 'w-full h-full'">
-    <i class="{{$slot}}" :class="open?'':'block'"></i>
+<div class="grid place-items-center" :class="$store.open.on ? '' : 'w-full h-full'">
+    <i class="{{$slot}}" :class="$store.open.on?'':'block'"></i>
 </div>
