@@ -5,20 +5,20 @@
         </div>
     </div>
     <div class="grid grid-cols-4 gap-4">
-        <div class="flex flex-col gap-2 justify-center items-center bg-white rounded-lg p-4 relative">
+        <div class="flex flex-col gap-2 justify-center items-center bg-white rounded-lg p-4">
             <h2>Urgent</h2>
             <h3 class="text-4xl">{{$urgent->count()}}</h3>
             <p></p>
         </div>
-        <div class="flex flex-col gap-2 justify-center items-center bg-white rounded-lg p-4 relative">
+        <div class="flex flex-col gap-2 justify-center items-center bg-white rounded-lg p-4">
             <h2>New</h2>
             <h3 class="text-4xl">{{ $new->count() }}</h3>
         </div>
-        <div class="flex flex-col gap-2 justify-center items-center bg-white rounded-lg p-4 relative">
+        <div class="flex flex-col gap-2 justify-center items-center bg-white rounded-lg p-4">
             <h2>Pending</h2>
             <h3 class="text-4xl">{{ $pending->count() }}</h3>
         </div>
-        <div class="flex flex-col gap-2 justify-center items-center bg-white rounded-lg p-4 relative">
+        <div class="flex flex-col gap-2 justify-center items-center bg-white rounded-lg p-4">
             <h2>Unresolved</h2>
             <h3 class="text-4xl">{{ $unresolved->count() }}</h3>
         </div>

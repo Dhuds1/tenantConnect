@@ -19,11 +19,10 @@
 </head>
 
 <body class="bg-yl-500 font-sans antialiased flex">
-    <aside class="fixed md:sticky md:left-0 top-0 rounded-lg bg-red-200 h-[100dvh]">
-        @include('layouts.ad-nav-side')
-    </aside>
+    <x-mobile-toggle />
+    <x-desktop-toggle />
     <!-- Page Content -->
-    <main class="mx-auto w-2/3 mt-4 flex flex-col gap-4">
+    <main class="mx-auto md:w-2/3 mt-4 flex flex-col gap-4">
         {{ $slot }}
     </main>
     @livewireScripts
