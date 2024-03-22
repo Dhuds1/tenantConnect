@@ -21,7 +21,7 @@
     <x-mobile-toggle />
     <x-desktop-toggle />
     <!-- Page Content -->
-    <main class="mx-auto md:w-2/3 mt-4 flex flex-col gap-4">
+    <main class="mx-auto md:w-2/3 mt-[200px] flex flex-col gap-4">
         {{ $slot }}
     </main>
     @livewireScripts

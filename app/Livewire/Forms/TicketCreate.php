@@ -2,9 +2,11 @@
 
 namespace App\Livewire\Forms;
 
-use Livewire\Attributes\Validate;
-use Livewire\Attributes\Rule;
 use Livewire\Form;
+use App\Models\Images;
+use App\Models\Ticket;
+use Livewire\Attributes\Rule;
+use Livewire\Attributes\Validate;
 
 class TicketCreate extends Form
 {
@@ -26,6 +28,7 @@ class TicketCreate extends Form
     #[Rule('required')]
     public $details;
 
+    public $images;
     public function create()
     {
         auth()->user()->tickets()->create($this->all());

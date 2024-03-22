@@ -30,6 +30,7 @@ export default {
                 "yl-500": "#ffe666",
                 'tur-100': "#F0FFFC",
                 'tur-200': "#E0FFFA",
+                'tur-500': "#66ffe5",
                 'link-active': "#2C3242",
                 'link-text': '#D3D5D8',
             },

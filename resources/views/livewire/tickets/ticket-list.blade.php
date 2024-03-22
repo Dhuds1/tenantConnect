@@ -25,7 +25,7 @@
                     {{$ticket->priority}}
                 </h3>
             </div>
-            <a href="{{route('tickets.update', ['id' => "$ticket->id"])}}" wire:navigate>Update</a>
+            <a href="{{route('tickets.update', ['id' => "$ticket->id"])}}">Update</a>
         </div>
         <p class="text-sm max-w-[70ch]">
             {{$ticket->details}}

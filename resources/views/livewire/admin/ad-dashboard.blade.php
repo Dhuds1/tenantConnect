@@ -19,7 +19,7 @@
             <h3 class="text-4xl">{{ $pending->count() }}</h3>
         </div>
         <div class="flex flex-col gap-2 justify-center items-center bg-white rounded-lg p-4">
-            <h2>Unresolved</h2>
+            <h2>Stale</h2>
             <h3 class="text-4xl">{{ $unresolved->count() }}</h3>
         </div>
     </div>
@@ -29,7 +29,7 @@
             <h3>
                 Urgent
             </h3>
-            <button @click="expanded = ! expanded" class="font-medium text-rp-500 hover:underline">View All</button>
+            <button @click="expanded = ! expanded" class="font-medium text-rp-500 hover:text-rp-700 duration-300 transition-all">View All <i class="fa-solid fa-chevron-up transition-all duration-300" :class="expanded ? '' : 'rotate-180'"></i></button>
         </div>
         <div x-show="expanded" x-collapse>
             <livewire:admin.dashboard-shortcuts :tickets="$urgent" />
@@ -41,7 +41,7 @@
             <h3>
                 New
             </h3>
-            <button @click="expanded = ! expanded" class="font-medium text-rp-500 hover:underline">View All</button>
+            <button @click="expanded = ! expanded" class="font-medium text-rp-500 hover:text-rp-700 duration-300 transition-all">View All <i class="fa-solid fa-chevron-up transition-all duration-300" :class="expanded ? '' : 'rotate-180'"></i></button>
         </div>
         <div x-show="expanded" x-collapse>
             <livewire:admin.dashboard-shortcuts :tickets="$new" />
@@ -53,7 +53,7 @@
             <h3>
                 Pending
             </h3>
-            <button @click="expanded = ! expanded" class="font-medium text-rp-500 hover:underline">View All</button>
+            <button @click="expanded = ! expanded" class="font-medium text-rp-500 hover:text-rp-700 duration-300 transition-all">View All <i class="fa-solid fa-chevron-up transition-all duration-300" :class="expanded ? '' : 'rotate-180'"></i></button>
 
         </div>
         <div x-show="expanded" x-collapse>
@@ -64,9 +64,9 @@
     <div x-data="{ expanded: false }" class="bg-white p-4 rounded-lg">
         <div class="flex justify-between gap-4">
             <h3>
-                Unresolved
+                Stale
             </h3>
-            <button @click="expanded = ! expanded" class="font-medium text-rp-500 hover:underline">View All</button>
+            <button @click="expanded = ! expanded" class="font-medium text-rp-500 hover:text-rp-700 duration-300 transition-all">View All <i class="fa-solid fa-chevron-up transition-all duration-300" :class="expanded ? '' : 'rotate-180'"></i></button>
         </div>
         <div x-show="expanded" x-collapse>
             <livewire:admin.dashboard-shortcuts :tickets="$unresolved" />

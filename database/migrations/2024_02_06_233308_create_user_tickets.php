@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('status')->default('open');
             $table->string('seen')->default('unseen');
+            $table->string('image_path')->nullable();
             $table->string('last_viewed')->nullable();
         });
     }
