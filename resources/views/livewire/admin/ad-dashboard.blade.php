@@ -7,23 +7,23 @@
     <div class="grid grid-cols-4 gap-4">
         <div class="flex flex-col gap-2 justify-center items-center bg-white rounded-lg p-4">
             <h2>Urgent</h2>
-            <h3 class="text-4xl">{{$urgent->count()}}</h3>
+            <h3 class="text-4xl">{{!empty($urgent) ?? $urgent->count()}}</h3>
             <p></p>
         </div>
         <div class="flex flex-col gap-2 justify-center items-center bg-white rounded-lg p-4">
             <h2>New</h2>
-            <h3 class="text-4xl">{{ $new->count() }}</h3>
+            <h3 class="text-4xl">{{!empty($new) ?? $new->count() }}</h3>
         </div>
         <div class="flex flex-col gap-2 justify-center items-center bg-white rounded-lg p-4">
             <h2>Pending</h2>
-            <h3 class="text-4xl">{{ $pending->count() }}</h3>
+            <h3 class="text-4xl">{{!empty($pending) ?? $pending->count() }}</h3>
         </div>
         <div class="flex flex-col gap-2 justify-center items-center bg-white rounded-lg p-4">
             <h2>Stale</h2>
-            <h3 class="text-4xl">{{ $unresolved->count() }}</h3>
+            <h3 class="text-4xl">{{ !empty($unresolved) ?? $unresolved->count() }}</h3>
         </div>
     </div>
-    @if(!$urgent->isEmpty())
+    @if(!empty($urgent))
     <div x-data="{ expanded: false }" class="bg-white p-4 rounded-lg">
         <div class="flex justify-between gap-4">
             <h3>
@@ -35,7 +35,7 @@
             <livewire:admin.dashboard-shortcuts :tickets="$urgent" />
         </div>
     </div>
-    @endif @if(!$new->isEmpty())
+    @endif @if(!empty($new))
     <div x-data="{ expanded: false }" class="bg-white p-4 rounded-lg">
         <div class="flex justify-between gap-4">
             <h3>
@@ -47,7 +47,7 @@
             <livewire:admin.dashboard-shortcuts :tickets="$new" />
         </div>
     </div>
-    @endif @if(!$pending->isEmpty())
+    @endif @if(!empty($pending))
     <div x-data="{ expanded: false }" class="bg-white p-4 rounded-lg">
         <div class="flex justify-between gap-4 ">
             <h3>
@@ -60,7 +60,7 @@
             <livewire:admin.dashboard-shortcuts :tickets="$pending" />
         </div>
     </div>
-    @endif @if(!$unresolved->isEmpty())
+    @endif @if(!empty($unresolved))
     <div x-data="{ expanded: false }" class="bg-white p-4 rounded-lg">
         <div class="flex justify-between gap-4">
             <h3>
