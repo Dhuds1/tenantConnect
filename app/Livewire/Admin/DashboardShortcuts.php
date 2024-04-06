@@ -8,10 +8,12 @@ use Livewire\Component;
 class DashboardShortcuts extends Component
 {
     public $tickets;
+    public $new;
     // $tickets is the value retrieved from ad-dashboard
-    public function mount($tickets)
+    public function mount($tickets, $new)
     {
         $this->tickets = $tickets;
+        $this->new = $new;
     }
     public function render()
     {
