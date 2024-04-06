@@ -18,22 +18,7 @@ class DashboardDirect extends Controller
 {
     public function index(Request $request)
     {
-        if($request->user()->hasRole('admin')){
-            return redirect()->action([DashboardDirect::class, 'admin']);
-        } else {
-            return redirect()->action([DashboardDirect::class, 'default']);
-        }
-
-    }
-    public function default(Request $request): View
-    {
         return view('dashboard', [
-            'user' => $request->user(),
-        ]);
-    }
-    public function admin(Request $request): View
-    {
-        return view('admin.index', [
             'user' => $request->user(),
         ]);
     }

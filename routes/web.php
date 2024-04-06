@@ -24,12 +24,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', [DashboardDirect::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::group(['middleware' => 'role:tenant'], function (){
+    Route::get('/dashboard', [DashboardDirect::class, 'index'])->name('dashboard');
+});
 // Admin Middleware
-Route::middleware('auth', 'role:admin')->group(function () {
-    // Ticket Center and Dashboard
-    Route::get('/admin', [AdDashboard::class, 'render'])->name('admin.index');
+Route::group(['middleware' => 'role:admin'], function(){
+    Route::get('/dashboard', AdDashboard::class)->name('admin.index');
     Route::get('/ticket-center', AdTicketIndex::class)->name('ad.ticket.index');
     Route::get('/ticket-center/ticket-id/{id}', [AdTicketViewing::class,'render'])->name('ad.ticket.viewing');
 });

@@ -13,7 +13,7 @@ class AdDashboard extends Component
 {
     public $urgent;
     public $new;
-    public $pending;
+    public $pending;    
     public $unresolved;
 
     public function mount(Ticket $ticket)
@@ -23,6 +23,7 @@ class AdDashboard extends Component
         $this->pending = $ticket::where('status', '!=','resolved')->get(); 
         $this->unresolved = $ticket::where('status','!=' ,'resolved')->where('last_viewed', '<=', now()->subDays(7))->get();
     }
+    #[Layout('layouts.admin')]
     public function render()
     {
         return view('livewire.admin.ad-dashboard');
