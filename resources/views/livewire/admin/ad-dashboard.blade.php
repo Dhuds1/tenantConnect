@@ -35,18 +35,6 @@
             <livewire:admin.dashboard-shortcuts :tickets="$urgent" />
         </div>
     </div>
-    @endif @if(!$new->isEmpty())
-    <div x-data="{ expanded: true }" class="bg-white p-4 rounded-lg">
-        <div class="flex justify-between gap-4">
-            <h3>
-                New
-            </h3>
-            <button @click="expanded = ! expanded" class="font-medium text-rp-500 hover:text-rp-700 duration-300 transition-all">View All <i class="fa-solid fa-chevron-up transition-all duration-300" :class="expanded ? '' : 'rotate-180'"></i></button>
-        </div>
-        <div x-show="expanded" x-collapse>
-            <livewire:admin.dashboard-shortcuts :tickets="$new" />
-        </div>
-    </div>
     @endif @if(!$pending->isEmpty())
     <div x-data="{ expanded: true }" class="bg-white p-4 rounded-lg">
         <div class="flex justify-between gap-4 ">
@@ -57,7 +45,7 @@
 
         </div>
         <div x-show="expanded" x-collapse>
-            <livewire:admin.dashboard-shortcuts :tickets="$pending" />
+            <livewire:admin.dashboard-shortcuts :tickets="$pending" :new="$new" />
         </div>
     </div>
     @endif @if(!$unresolved->isEmpty())
