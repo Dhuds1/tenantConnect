@@ -19,7 +19,7 @@ class AdDashboard extends Component
     public function mount(Ticket $ticket)
     {
         $this->urgent = $ticket::where('priority', 'urgent')->get();
-        $this->new = $ticket::where('seen','unseen')->get();
+        $this->new = $ticket::select('id')->where('seen','unseen')->get();
         $this->pending = $ticket::where('status', '!=','resolved')->get(); 
         $this->unresolved = $ticket::where('status','!=' ,'resolved')->where('last_viewed', '<=', now()->subDays(7))->get();
     }
