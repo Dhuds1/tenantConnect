@@ -25,14 +25,12 @@ Route::get('/', function () {
 });
 
 
-Route::group(['middleware' => 'role:tenant'], function (){
-    Route::get('/dashboard', [DashboardDirect::class, 'index'])->name('dashboard');
-});
+Route::get('/dashboard', [DashboardDirect::class, 'index'])->middleware('auth')->name('dashboard');
 // Admin Middleware
 Route::group(['middleware' => 'role:admin'], function(){
-    Route::get('/dashboard', AdDashboard::class)->name('admin.index');
-    Route::get('/ticket-center', AdTicketIndex::class)->name('ad.ticket.index');
-    Route::get('/ticket-center/ticket-id/{id}', [AdTicketViewing::class,'render'])->name('ad.ticket.viewing');
+    Route::get('/admin/dashboard', AdDashboard::class)->name('admin.index');
+    Route::get('/admin/ticket-center', AdTicketIndex::class)->name('ad.ticket.index');
+    Route::get('/admin/ticket-center/ticket-id/{id}', [AdTicketViewing::class,'render'])->name('ad.ticket.viewing');
 });
 
 Route::middleware('auth')->group(function () {
