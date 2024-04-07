@@ -3,10 +3,11 @@
 namespace App\Livewire\Forms;
 
 use Livewire\Form;
-use App\Models\Images;
+use App\Models\Images;  // Remove if not used for image storage
 use App\Models\Ticket;
 use Livewire\Attributes\Rule;
 use Livewire\Attributes\Validate;
+use Livewire\WithFileUploads;  // Import the trait
 
 class TicketCreate extends Form
 {
@@ -28,9 +29,10 @@ class TicketCreate extends Form
     #[Rule('required')]
     public $details;
 
-    public $images;
+    public $image; // Property to store uploaded image
     public function create()
     {
+        dd($this);
         auth()->user()->tickets()->create($this->all());
         request()->session()->flash('success', __('Ticket Submitted Successfully'));
     }

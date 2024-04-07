@@ -13,7 +13,7 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable
 {
     use HasRoles, HasApiTokens, HasFactory, Notifiable;
-
+    private $ticket = Ticket::class;
     /**
      * The attributes that are mass assignable.
      *
@@ -51,5 +51,11 @@ class User extends Authenticatable
     public function tickets(): HasMany
     {
         return $this->hasMany(Ticket::class);
+    }
+    function get_open() {
+        return $this->tickets()->where("status", "=", "open")->get();
+    }
+    function get_open_count() {
+        return $this->get_open()->count();
     }
 }

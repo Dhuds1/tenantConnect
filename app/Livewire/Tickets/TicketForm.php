@@ -17,24 +17,31 @@ class TicketForm extends ModalComponent
     public $tenant;
     public $image;
 
-    public function mount()
-    {
-        $this->fill([
-            'ticket.tenant' => Auth::user()->name,
-            'ticket.building' => Auth::user()->building,
-            'ticket.unit' => Auth::user()->unit,
-            'ticket.email' => Auth::user()->email,
-        ]);
-    }
-    public function storeImage(Request $request)
-    {
-        $name = $this->image[0]->hashName();
-        $path = $this->image[0]->storeAs('ticket-images', $name, 'public');
-        Storage::disk('local')->put($path, file_get_contents($this->ticket->images));
-    }
     public function save()
     {
-        $this->validate();
+        $this->validate([
+            'ticket.tenant' => 'required',
+            'ticket.building' => 'required',
+            'ticket.unit' => 'required',
+            'ticket.email' => 'required|email',
+            'ticket.topic' => 'required',
+            'ticket.priority' => 'required',
+            'ticket.title' => 'required',
+            'ticket.details' => 'required',
+            'ticket.image' => 'nullable|image', // Optional validation for image
+        ]);
+        // Handle image upload (if applicable)
+        if ($this->image) {
+            if ($this->image) {
+                $paths = []; // Array to store image paths
+                foreach ($this->image as $image) {
+                    $path = $image->store('ticket-images', 'public');
+                    $paths[] = $path; // Add each image path to the array
+                }
+                $this->ticket->images = $paths; // Update ticket data with array of paths
+            }
+        }
+
         $this->ticket->create();
         $this->dispatch('ticket-created');
         $this->ticket->reset();

@@ -18,10 +18,10 @@
     <script src="https://kit.fontawesome.com/09b7d5371f.js" crossorigin="anonymous"></script>
 </head>
 <body id="body" class="bg-yl-500 font-sans antialiased flex">
-    <x-mobile-toggle />
-    <x-desktop-toggle />
+    <x-ad-mobile-toggle />
+    <x-ad-desktop-toggle />
     <!-- Page Content -->
-    <main class="mx-auto md:w-2/3 mt-[200px] flex flex-col gap-4">
+    <main class="mx-auto md:w-2/3 mt-4 flex flex-col gap-4">
         {{ $slot }}
     </main>
     @livewireScripts

@@ -1,4 +1,4 @@
-<div class="w-full">
+    <div class="w-full">
     <div class="mx-auto sm:px-6 lg:px-8">
         <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
             <div class="p-4 text-gray-900">
@@ -169,7 +169,9 @@
                         </div>
                     </div>
                     <label for="images">Images</label>
-                    <input type="file" name="images" wire:model="image" id="images" multiple>
+                    <div wire:model="image">
+                        <input type="file" id="images" name="images" multiple>
+                    </div>
                     <div class="flex gap-2 items-end">
 
                         <button
