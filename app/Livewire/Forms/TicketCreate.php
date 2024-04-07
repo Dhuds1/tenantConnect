@@ -29,10 +29,9 @@ class TicketCreate extends Form
     #[Rule('required')]
     public $details;
 
-    public $image; // Property to store uploaded image
+    public $images; // Property to store uploaded image
     public function create()
     {
-        dd($this);
         auth()->user()->tickets()->create($this->all());
         request()->session()->flash('success', __('Ticket Submitted Successfully'));
     }

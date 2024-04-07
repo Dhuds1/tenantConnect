@@ -15,7 +15,7 @@ class TicketForm extends ModalComponent
     use WithFileUploads;
 
     public $tenant;
-    public $image;
+    public $images;
 
     public function save()
     {
@@ -28,15 +28,15 @@ class TicketForm extends ModalComponent
             'ticket.priority' => 'required',
             'ticket.title' => 'required',
             'ticket.details' => 'required',
-            'ticket.image' => 'nullable|image', // Optional validation for image
+            'ticket.images' => 'nullable|images', // Optional validation for image
         ]);
         // Handle image upload (if applicable)
-        if ($this->image) {
-            if ($this->image) {
-                $paths = []; // Array to store image paths
-                foreach ($this->image as $image) {
+        if ($this->images) {
+            if ($this->images) {
+                $paths = [];
+                foreach ($this->images as $image) {
                     $path = $image->store('ticket-images', 'public');
-                    $paths[] = $path; // Add each image path to the array
+                    $paths[] = $path;
                 }
                 $this->ticket->images = $paths; // Update ticket data with array of paths
             }
