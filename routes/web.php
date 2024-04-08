@@ -30,7 +30,7 @@ Route::get('/dashboard', [DashboardDirect::class, 'index'])->middleware('auth')-
 Route::group(['middleware' => 'role:admin'], function () {
   Route::get('/admin/dashboard', AdDashboard::class)->name('admin.index');
   Route::get('/admin/ticket-center', AdTicketIndex::class)->name('ad.ticket.index');
-  Route::get('/admin/ticket-center/ticket-id/{id}', [AdTicketViewing::class, 'render'])->name('ad.ticket.viewing');
+  Route::get('/admin/ticket-center/{id}', AdTicketViewing::class)->name('ad.ticket.viewing');
 });
 
 Route::middleware('auth')->group(function () {
