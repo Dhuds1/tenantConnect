@@ -5,6 +5,8 @@ namespace App\Enums;
 enum StatusType: string
 {
   case OPEN = 'open';
-  case UNDER_REVIEW = 'under_review';
-  case DONE = 'done';
+  case REVIEW = 'review';
+  case ACCEPT = 'accept';
+  case CLOSE = 'close';
+  case ARCHIVE = 'archive';
 }

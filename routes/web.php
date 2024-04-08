@@ -21,25 +21,25 @@ use App\Livewire\Admin\AdDashboard;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+  return view('welcome');
 });
 
 
 Route::get('/dashboard', [DashboardDirect::class, 'index'])->middleware('auth')->name('dashboard');
 // Admin Middleware
-Route::group(['middleware' => 'role:admin'], function(){
-    Route::get('/admin/dashboard', AdDashboard::class)->name('admin.index');
-    Route::get('/admin/ticket-center', AdTicketIndex::class)->name('ad.ticket.index');
-    Route::get('/admin/ticket-center/ticket-id/{id}', [AdTicketViewing::class,'render'])->name('ad.ticket.viewing');
+Route::group(['middleware' => 'role:admin'], function () {
+  Route::get('/admin/dashboard', AdDashboard::class)->name('admin.index');
+  Route::get('/admin/ticket-center', AdTicketIndex::class)->name('ad.ticket.index');
+  Route::get('/admin/ticket-center/ticket-id/{id}', [AdTicketViewing::class, 'render'])->name('ad.ticket.viewing');
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+  Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+  Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+  Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/tickets', TicketIndex::class)->name('tickets.index');
-    Route::get('/tickets/update/{id}', [TicketUpdate::class, 'render'])->name('tickets.update');
+  Route::get('/tickets', TicketIndex::class)->name('tickets.index');
+  Route::get('/tickets/update/{id}', TicketUpdate::class)->name('tickets.update');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

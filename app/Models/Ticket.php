@@ -2,7 +2,10 @@
 
 namespace App\Models;
 
+use App\Enums\BuildingNames;
 use App\Enums\PriorityType;
+use App\Enums\StatusType;
+use App\Enums\TopicTypes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -25,8 +28,11 @@ class Ticket extends Model
   ];
 
   protected $casts = [
-    'unit' => 'integer',
     'priority' => PriorityType::class,
+    'building' => BuildingNames::class,
+    'status' => StatusType::class,
+    'topic' => TopicTypes::class,
+    'unit' => 'integer',
     'images' => 'array',
   ];
 
@@ -35,14 +41,4 @@ class Ticket extends Model
     return $this->belongsTo(User::class);
   }
 
-  // App\Models\Ticket.php
-
-  public function setAttribute($key, $value)
-  {
-    if ($key === 'images' && is_string($value)) {
-      $value = json_decode($value, true); // Decode JSON if it's a string
-    }
-
-    return parent::setAttribute($key, $value);
-  }
 }

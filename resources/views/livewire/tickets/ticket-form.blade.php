@@ -36,16 +36,15 @@
               </div>
             </div>
 
-            <div class="sm:col-span-3">
+            <div class="sm:col-span-3 grid grid-cols-2">
               <label class="text-md block font-medium leading-6 text-gray-900" for="building">{{
                 __('Building') }}</label>
               <select id="building" wire:model="ticket.building" name="building"
-                class="sm:text-md mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-rp-600 sm:leading-6">
+                class=" sm:text-md mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-rp-600 sm:leading-6">
                 <option value="" selected>{{ __('Select Building') }}</option>
-                <option value="collie">Collie</option>
-                <option value="hound">Hound</option>
-                <option value="beagle">Beagle</option>
-                <option value="sheperd">Sheperd</option>
+                @foreach (\App\Enums\BuildingNames::cases() as $building)
+                <option value="{{ $building->name }}">{{ $building->name }}</option>
+                @endforeach
               </select>
               {{-- Errors --}}
               <div class="">
@@ -98,11 +97,9 @@
               <select id="topic" wire:model="ticket.topic" name="topic"
                 class="sm:text-md mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-rp-600 sm:leading-6">
                 <option value="" selected>{{ __('Select Topic') }}</option>
-                <option value="building">Building</option>
-                <option value="floor">Floor</option>
-                <option value="unit">Unit</option>
-                <option value="suggestion">Suggestion</option>
-                <option value="concerns">Concerns</option>
+                @foreach (\App\Enums\TopicTypes::cases() as $topic)
+                <option value="{{ $topic->value }}">{{ $topic->name }}</option>
+                @endforeach
               </select>
               {{-- Errors --}}
               <div class="">
@@ -167,8 +164,13 @@
             </div>
           </div>
           <label for="images">Images</label>
+          @if($images)
+            @foreach ( $images as $image)
+              <img src="{{$image->temporaryUrl()}}" alt="">
+            @endforeach
+          @endif
           <div>
-            <input type="file" wire:model="images" name="images" id="images" multiple>
+            <input type="file" wire:model="images" name="images" id="images" accept="image/png, image/jpeg, image/jpg" multiple>
           </div>
           <div class="flex gap-2 items-end">
 

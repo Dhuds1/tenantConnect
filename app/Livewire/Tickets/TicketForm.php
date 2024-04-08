@@ -28,7 +28,7 @@ class TicketForm extends ModalComponent
             'ticket.priority' => 'required',
             'ticket.title' => 'required',
             'ticket.details' => 'required',
-            'ticket.images' => 'nullable|images', // Optional validation for image
+            'ticket.images' => 'nullable|mimes:jpeg,png,jpg',
         ]);
         // Handle image upload (if applicable)
         if ($this->images) {
