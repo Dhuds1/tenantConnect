@@ -13,7 +13,7 @@ class AdTicketList extends Component
     public function render()
     {
         return view('livewire.admin.ad-ticket-list', [
-            'tickets' => Ticket::paginate(10),
+            'tickets' => Ticket::where("status", "!=", "archive")->paginate(10),
         ]);
     }
 }

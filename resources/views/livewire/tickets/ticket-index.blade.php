@@ -1,4 +1,4 @@
-<div class="">
+<div class="bg-white p-4 rounded-lg shadow-lg">
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             Tickets, {{auth()->user()->name}}

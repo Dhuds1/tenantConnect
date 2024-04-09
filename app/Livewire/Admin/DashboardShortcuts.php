@@ -10,10 +10,9 @@ class DashboardShortcuts extends Component
     public $tickets;
     public $new;
     // $tickets is the value retrieved from ad-dashboard
-    public function mount($tickets, $new)
+    public function mount($tickets)
     {
         $this->tickets = $tickets;
-        $this->new = $new;
     }
     public function render()
     {

@@ -36,14 +36,14 @@
               </div>
             </div>
 
-            <div class="sm:col-span-3 grid grid-cols-2">
+            <div class="sm:col-span-3">
               <label class="text-md block font-medium leading-6 text-gray-900" for="building">{{
                 __('Building') }}</label>
               <select id="building" wire:model="ticket.building" name="building"
                 class=" sm:text-md mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-rp-600 sm:leading-6">
                 <option value="" selected>{{ __('Select Building') }}</option>
                 @foreach (\App\Enums\BuildingNames::cases() as $building)
-                <option value="{{ $building->name }}">{{ $building->name }}</option>
+                <option value="{{ $building->value }}">{{ $building->name }}</option>
                 @endforeach
               </select>
               {{-- Errors --}}
@@ -165,12 +165,13 @@
           </div>
           <label for="images">Images</label>
           @if($images)
-            @foreach ( $images as $image)
-              <img src="{{$image->temporaryUrl()}}" alt="">
-            @endforeach
+          @foreach ( $images as $image)
+          <img src="{{$image->temporaryUrl()}}" alt="">
+          @endforeach
           @endif
           <div>
-            <input type="file" wire:model="images" name="images" id="images" accept="image/png, image/jpeg, image/jpg" multiple>
+            <input type="file" wire:model="images" name="images" id="images" accept="image/png, image/jpeg, image/jpg"
+              multiple>
           </div>
           <div class="flex gap-2 items-end">
 

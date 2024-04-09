@@ -4,28 +4,15 @@ namespace App\Livewire\Tickets;
 
 use App\Models\Ticket;
 use Livewire\Component;
-use Illuminate\Http\Request;
-use Livewire\WithFileUploads;
-use App\Livewire\TicketCreate;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class TicketUpdate extends Component
 {
-  use WithFileUploads;
-
   public $ticket;
-  public $tenant;
-  public $building;
-  public $unit;
-  public $email;
-  public $topic;
-  public $priority;
   public $title;
   public $details;
-  public $images;
+
 
   public function mount($id)
   {
@@ -39,11 +26,26 @@ class TicketUpdate extends Component
       Session::flash('alert-type', 'error');
       return redirect()->route('tickets.index');
     }
+    $this->details = $this->ticket->details;
+    $this->title = $this->ticket->title;
   }
 
   public function update()
   {
-    dd($this);
+    $changes = false;
+    if ($this->ticket->details !== $this->details) {
+      $this->ticket->details = $this->details;
+      $changes = true;
+    }
+    if( $this->ticket->title !== $this->title) {
+      $this->ticket->title = $this->title;
+      $changes = true;
+    }
+    if ($changes == true) {
+      $this->ticket->save();
+    } else {
+      dd("no changes");
+    }
   }
 
   public function render()

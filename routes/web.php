@@ -1,5 +1,7 @@
 <?php
 
+use App\Livewire\Admin\AdDashboard;
+use App\View\Components\TicketView;
 use App\Livewire\Admin\AdTicketIndex;
 use App\Livewire\Tickets\TicketIndex;
 use Illuminate\Support\Facades\Route;
@@ -7,7 +9,6 @@ use App\Livewire\Tickets\TicketUpdate;
 use App\Livewire\Admin\AdTicketViewing;
 use App\Http\Controllers\DashboardDirect;
 use App\Http\Controllers\ProfileController;
-use App\Livewire\Admin\AdDashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,7 @@ Route::middleware('auth')->group(function () {
   Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
   Route::get('/tickets', TicketIndex::class)->name('tickets.index');
+  Route::get('/ticket/view/{id}', TicketView::class)->name('tickets.view');
   Route::get('/tickets/update/{id}', TicketUpdate::class)->name('tickets.update');
 });
 
